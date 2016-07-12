@@ -6,7 +6,7 @@ public class CompteCourant extends Compte {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private double decouvertAutorise;
+	private double decouvertAutorise=1000;
 	
 	
 	// Constructeurs
