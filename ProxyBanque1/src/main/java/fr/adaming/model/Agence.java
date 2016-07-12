@@ -1,33 +1,62 @@
 package fr.adaming.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Agence {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="agences")
+public class Agence implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4941417234676253217L;
+
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_agence")
 	private int id;
 	private Date dateCreation;
 	
-	// Constructeurs
-		// - vide
+	/**
+	 * Constructeur vide
+	 */
 	public Agence() {
 		super();
 	}
 	
-		// - sans Id
+	/**
+	 * COnstructeur sans id
+	 * @param dateCreation
+	 */
 	public Agence(Date dateCreation) {
 		super();
 		this.dateCreation = dateCreation;
 	}
 	
-		// - full
+	/**
+	 * COnstructeur plein
+	 * @param id
+	 * @param dateCreation
+	 */
 	public Agence(int id, Date dateCreation) {
 		super();
 		this.id = id;
 		this.dateCreation = dateCreation;
 	}
 	
-	// Getters et Setters
-	
+	/**
+	 * Getters & Setters
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}

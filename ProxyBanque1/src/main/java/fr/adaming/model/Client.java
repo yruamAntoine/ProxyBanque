@@ -2,6 +2,7 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,13 +23,16 @@ public class Client implements Serializable {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id_client;
+	@Column(name="id_client")
+	private int id;
 	private String nom;
 	private String prenom;
 	private String adresse;
 	private int codePostal;
 	private String ville;
 	private String tel;
+	
+	private Conseiller conseiller;
 
 	/**
 	 * Getters & setters
@@ -91,41 +95,51 @@ public class Client implements Serializable {
 		this.tel = tel;
 	}
 
+
+	public Conseiller getConseiller() {
+		return conseiller;
+	}
+
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
+	}
+
 	/**
 	 * Constructeur plein
-	 * 
-	 * @param id_client
+	 * @param id
 	 * @param nom
 	 * @param prenom
 	 * @param adresse
 	 * @param codePostal
 	 * @param ville
 	 * @param tel
+	 * @param conseiller
 	 */
-	public Client(int id_client, String nom, String prenom, String adresse,
-			int codePostal, String ville, String tel) {
+	public Client(int id, String nom, String prenom, String adresse,
+			int codePostal, String ville, String tel, Conseiller conseiller) {
 		super();
-		this.id_client = id_client;
+		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.tel = tel;
+		this.conseiller = conseiller;
 	}
 
 	/**
 	 * Constructeur sans id
-	 * 
 	 * @param nom
 	 * @param prenom
 	 * @param adresse
 	 * @param codePostal
 	 * @param ville
 	 * @param tel
+	 * @param conseiller
 	 */
 	public Client(String nom, String prenom, String adresse, int codePostal,
-			String ville, String tel) {
+			String ville, String tel, Conseiller conseiller) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -133,6 +147,7 @@ public class Client implements Serializable {
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.tel = tel;
+		this.conseiller = conseiller;
 	}
 
 	/**
@@ -141,5 +156,7 @@ public class Client implements Serializable {
 	public Client() {
 		super();
 	}
+	
+	
 
 }
