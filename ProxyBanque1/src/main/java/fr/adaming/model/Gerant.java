@@ -9,104 +9,100 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="conseillers")
-public class Conseiller implements Serializable{
-
+@Table(name="gerants")
+public class Gerant implements Serializable{
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="id_conseiller")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_gerant")
 	private int id;
-	
 	private String nom;
 	private String prenom;
 	
-	private Gerant gerant;
-
+	private Agence agence;
+	private String password;
+	
 	/**
-	 * Getters & setters
+	 * Getters & setters 
 	 * @return
 	 */
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getNom() {
 		return nom;
 	}
-
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
 	public String getPrenom() {
 		return prenom;
 	}
-
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-
-	public Gerant getGerant() {
-		return gerant;
+	public Agence getAgence() {
+		return agence;
 	}
-
-	public void setGerant(Gerant gerant) {
-		this.gerant = gerant;
+	public void setAgence(Agence agence) {
+		this.agence = agence;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getPassword() {
+		return password;
 	}
-
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	/**
 	 * Constructeur plein
 	 * @param id
 	 * @param nom
 	 * @param prenom
-	 * @param gerant
+	 * @param agence
+	 * @param password
 	 */
-	public Conseiller(int id, String nom, String prenom, Gerant gerant) {
+	public Gerant(int id, String nom, String prenom, Agence agence,
+			String password) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.gerant = gerant;
+		this.agence = agence;
+		this.password = password;
 	}
-	
 	
 	/**
 	 * Constructeur sans id
 	 * @param nom
 	 * @param prenom
-	 * @param gerant
+	 * @param agence
+	 * @param password
 	 */
-	public Conseiller(String nom, String prenom, Gerant gerant) {
+	public Gerant(String nom, String prenom, Agence agence, String password) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
-		this.gerant = gerant;
+		this.agence = agence;
+		this.password = password;
 	}
-
+	
 	/**
 	 * Constructeur vide
 	 */
-	public Conseiller() {
+	public Gerant() {
 		super();
 	}
 	
 	
 	
-	
-	
+
 }

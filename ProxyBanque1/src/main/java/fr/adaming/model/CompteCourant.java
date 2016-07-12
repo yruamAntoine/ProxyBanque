@@ -1,11 +1,20 @@
 package fr.adaming.model;
 
-public class CompteCourant extends Compte {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="compteCourants")
+public class CompteCourant extends Compte implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	
 	private double decouvertAutorise=1000;
 	
 	
@@ -18,6 +27,13 @@ public class CompteCourant extends Compte {
 		super();
 		this.decouvertAutorise = decouvertAutorise;
 	}
+
+	
+
+	public CompteCourant() {
+		super();
+	}
+
 
 
 	// Getters et Setters

@@ -1,6 +1,13 @@
 package fr.adaming.model;
 
-public class CompteEpargne extends Compte {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="compteEpagnes")
+public class CompteEpargne extends Compte implements Serializable{
 	
 	/**
 	 * 

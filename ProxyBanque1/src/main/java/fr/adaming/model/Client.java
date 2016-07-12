@@ -40,11 +40,11 @@ public class Client implements Serializable {
 	 * @return
 	 */
 	public int getId_client() {
-		return id_client;
+		return id;
 	}
 
-	public void setId_client(int id_client) {
-		this.id_client = id_client;
+	public void setId_client(int id) {
+		this.id = id;
 	}
 
 	public String getNom() {
