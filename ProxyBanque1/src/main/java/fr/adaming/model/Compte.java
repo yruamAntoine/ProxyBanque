@@ -1,6 +1,7 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,6 +25,8 @@ public abstract class Compte implements Serializable{
 	private double solde;
 	private Client client;
 	
+	private Date dateOuverture;
+	
 	// Constructeurs
 	
 	/**
@@ -33,30 +36,29 @@ public abstract class Compte implements Serializable{
 		super();
 	}
 	
-	/**
-	 * Constructeur sans id
-	 * @param solde
-	 * @param client
-	 */
-	public Compte(double solde, Client client) {
+
+	
+	public Compte(double solde, Client client, Date dateOuverture) {
 		super();
 		this.solde = solde;
 		this.client = client;
+		this.dateOuverture = dateOuverture;
 	}
+
+
+
 	
-	/**
-	 * Constructeur full
-	 * @param id
-	 * @param solde
-	 * @param client
-	 */
-	public Compte(int id, double solde, Client client) {
+	
+	public Compte(int id, double solde, Client client, Date dateOuverture) {
 		super();
 		this.id = id;
 		this.solde = solde;
 		this.client = client;
+		this.dateOuverture = dateOuverture;
 	}
-	
+
+
+
 	//Getters et Setters
 	
 	/**
@@ -94,6 +96,18 @@ public abstract class Compte implements Serializable{
 	 */
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+
+
+	public Date getDateOuverture() {
+		return dateOuverture;
+	}
+
+
+
+	public void setDateOuverture(Date dateOuverture) {
+		this.dateOuverture = dateOuverture;
 	}
 	
 	
