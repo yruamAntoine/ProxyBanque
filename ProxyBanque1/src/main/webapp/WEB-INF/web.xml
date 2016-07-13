@@ -5,7 +5,7 @@
 	version="3.0">
 	<display-name>ProxyBanque1</display-name>
 	<welcome-file-list>
-		<welcome-file>login.xhtml</welcome-file>
+		<welcome-file>Acceuil_Conseiller.xhtml</welcome-file>
 	</welcome-file-list>
 
 
