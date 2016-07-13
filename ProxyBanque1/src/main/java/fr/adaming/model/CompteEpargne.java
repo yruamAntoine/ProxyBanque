@@ -8,7 +8,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="compteEpagnes")
-@MappedSuperclass
 public class CompteEpargne extends Compte implements Serializable{
 	
 	/**
