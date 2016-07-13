@@ -11,21 +11,31 @@
 	<div align="center">
 		<h:form>
 			<p:breadCrumb>
-				<p:menuitem value="Accueil" url="login.xhtml" />
+				<p:menuitem value="Accueil" url="index.xhtml" />
 				<p:menuitem value="Nouvelle agence" url="addAgence.xhtml" />
-				<p:menuitem value="Supprimer agence" url="supprimer.xhtml" />
+				<p:menuitem value="Modifier utilisateur" url="modifier.xhtml" />
+				<p:menuitem value="Supprimer utilisateur" url="supprimer.xhtml" />
 			</p:breadCrumb>
 			<br/>
 		</h:form>
 		<fieldset style="width: 349px; height: 130px">
-			<legend>Gestion des agences</legend>
+			<legend>Gestion des Agences</legend>
 			<h:form>
 				<table>
+
 					<tr>
-						<td>Date création : </td>
+						<td>Date de creation</td>
 						<td><h:inputText id="dateCreation" value="#{agenceMB.agence.dateCreation}"></h:inputText></td>
 					</tr>
 
+
+
+					<tr>
+						<td><h:commandButton value="Ajouter agence"
+								action="#{agenceMB.ajouter}"></h:commandButton></td>
+						<td><h:commandButton value="Rafraichir la liste"
+								action="#{agenceMB.afficher}"/></td>
+					</tr>
 				</table>
 			</h:form>
 
@@ -35,18 +45,19 @@
 	<br/>
 	<br/>
 	<div>
-		<p:dataTable var="emp" value="#{agenceMB.listeAgence}">
+		<p:dataTable var="agence" value="#{agenceMB.listeAgence}">
 			 <!-- Equivalent à une boucle for each pour balayer et afficher la liste des utilisteurs --> 
-			<p:column headerText="Id">
+			<p:column headerText="id">
 				<h:outputText value="#{agence.id}" />
 			</p:column>
 
-			<p:column headerText="Date">
-				<h:outputText value="#{agenceMB.dateCreation}" />
+			<p:column headerText="dateCreation">
+				<h:outputText value="#{agence.dateCreation}" />
 			</p:column>
 
-			
+
+
 		</p:dataTable>
 	</div>
-	</body>
+</body>
 </html>
