@@ -14,6 +14,11 @@ import fr.adaming.service.IAgenceService;
 @SessionScoped
 public class AgenceManagedBean implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1897298773402983790L;
+
 	@ManagedProperty(value = "#{agenceServiceBean}")
 	IAgenceService agenceService;
 
@@ -59,7 +64,7 @@ public class AgenceManagedBean implements Serializable{
 	 */
 	public String ajouter() {
 		agenceService.createAgence(agence);
-		listeAgence = agenceService.getAllAgences();
+		//listeAgence = agenceService.getAllAgences();
 		return "succes";
 	}
 	
