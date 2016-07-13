@@ -1,12 +1,16 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -27,12 +31,12 @@ public class Conseiller implements Serializable{
 	private String nom;
 	private String prenom;
 	
+	@ManyToOne
 	private Gerant gerant;
+	
+	@OneToMany(mappedBy="conseiller")
+	private List<Client> clients;
 
-	/**
-	 * Getters & setters
-	 * @return
-	 */
 	public int getId() {
 		return id;
 	}
@@ -65,32 +69,35 @@ public class Conseiller implements Serializable{
 		this.gerant = gerant;
 	}
 
+	public List<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(List<Client> clients) {
+		this.clients = clients;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	/**
-	 * Constructeur plein
-	 * @param id
-	 * @param nom
-	 * @param prenom
-	 * @param gerant
-	 */
-	public Conseiller(int id, String nom, String prenom, Gerant gerant) {
+	public Conseiller(int id, String nom, String prenom, Gerant gerant, List<Client> clients) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.gerant = gerant;
+		this.clients = clients;
 	}
-	
-	
-	/**
-	 * Constructeur sans id
-	 * @param nom
-	 * @param prenom
-	 * @param gerant
-	 */
+
+	public Conseiller(String nom, String prenom, Gerant gerant, List<Client> clients) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.gerant = gerant;
+		this.clients = clients;
+	}
+
 	public Conseiller(String nom, String prenom, Gerant gerant) {
 		super();
 		this.nom = nom;
@@ -98,12 +105,11 @@ public class Conseiller implements Serializable{
 		this.gerant = gerant;
 	}
 
-	/**
-	 * Constructeur vide
-	 */
 	public Conseiller() {
 		super();
 	}
+
+	
 	
 	
 	
