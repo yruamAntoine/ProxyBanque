@@ -15,20 +15,7 @@
 			<to-view-id>/index.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
-	<navigation-rule>
-		<from-view-id>/supprimer.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>succes</from-outcome>
-			<to-view-id>/index.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<from-view-id>/modifier.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>succes</from-outcome>
-			<to-view-id>/index.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
+
 </faces-config>
+
+
