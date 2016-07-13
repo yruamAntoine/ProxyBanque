@@ -27,88 +27,97 @@ public abstract class Compte implements Serializable{
 	
 	private Date dateOuverture;
 	
-	// Constructeurs
-	
+	private boolean entreprise;
+
+	/**
+	 * Constructeurs pleins
+	 * @param id
+	 * @param solde
+	 * @param client
+	 * @param dateOuverture
+	 * @param entreprise
+	 */
+	public Compte(int id, double solde, Client client, Date dateOuverture,
+			boolean entreprise) {
+		super();
+		this.id = id;
+		this.solde = solde;
+		this.client = client;
+		this.dateOuverture = dateOuverture;
+		this.entreprise = entreprise;
+	}
+
+	/**
+	 * Constructeur sans id
+	 * @param solde
+	 * @param client
+	 * @param dateOuverture
+	 * @param entreprise
+	 */
+	public Compte(double solde, Client client, Date dateOuverture,
+			boolean entreprise) {
+		super();
+		this.solde = solde;
+		this.client = client;
+		this.dateOuverture = dateOuverture;
+		this.entreprise = entreprise;
+	}
+
 	/**
 	 * Constructeur vide
 	 */
 	public Compte() {
 		super();
 	}
-	
 
-	
-	public Compte(double solde, Client client, Date dateOuverture) {
-		super();
-		this.solde = solde;
-		this.client = client;
-		this.dateOuverture = dateOuverture;
-	}
-
-
-
-	
-	
-	public Compte(int id, double solde, Client client, Date dateOuverture) {
-		super();
-		this.id = id;
-		this.solde = solde;
-		this.client = client;
-		this.dateOuverture = dateOuverture;
-	}
-
-
-
-	//Getters et Setters
-	
 	/**
-	 * @return the id
+	 * Setters &getters
+	 * @return
 	 */
 	public int getId() {
 		return id;
 	}
-	/**
-	 * @param id the id to set
-	 */
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	/**
-	 * @return the solde
-	 */
+
 	public double getSolde() {
 		return solde;
 	}
-	/**
-	 * @param solde the solde to set
-	 */
+
 	public void setSolde(double solde) {
 		this.solde = solde;
 	}
-	/**
-	 * @return the client
-	 */
+
 	public Client getClient() {
 		return client;
 	}
-	/**
-	 * @param client the client to set
-	 */
+
 	public void setClient(Client client) {
 		this.client = client;
 	}
-
-
 
 	public Date getDateOuverture() {
 		return dateOuverture;
 	}
 
-
-
 	public void setDateOuverture(Date dateOuverture) {
 		this.dateOuverture = dateOuverture;
 	}
+
+	public boolean isEntreprise() {
+		return entreprise;
+	}
+
+	public void setEntreprise(boolean entreprise) {
+		this.entreprise = entreprise;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	
 	
 
