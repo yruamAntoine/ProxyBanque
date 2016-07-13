@@ -26,6 +26,8 @@ public class Agence implements Serializable{
 	private int id;
 	private Date dateCreation;
 	
+
+	
 	/**
 	 * Constructeur vide
 	 */
