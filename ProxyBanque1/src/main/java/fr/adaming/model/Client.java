@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,18 +33,14 @@ public class Client implements Serializable {
 	private String ville;
 	private String tel;
 	
+	@ManyToOne
 	private Conseiller conseiller;
 
-	/**
-	 * Getters & setters
-	 * 
-	 * @return
-	 */
-	public int getId_client() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId_client(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -95,7 +92,6 @@ public class Client implements Serializable {
 		this.tel = tel;
 	}
 
-
 	public Conseiller getConseiller() {
 		return conseiller;
 	}
@@ -104,19 +100,12 @@ public class Client implements Serializable {
 		this.conseiller = conseiller;
 	}
 
-	/**
-	 * Constructeur plein
-	 * @param id
-	 * @param nom
-	 * @param prenom
-	 * @param adresse
-	 * @param codePostal
-	 * @param ville
-	 * @param tel
-	 * @param conseiller
-	 */
-	public Client(int id, String nom, String prenom, String adresse,
-			int codePostal, String ville, String tel, Conseiller conseiller) {
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Client(int id, String nom, String prenom, String adresse, int codePostal, String ville, String tel,
+			Conseiller conseiller) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -128,18 +117,8 @@ public class Client implements Serializable {
 		this.conseiller = conseiller;
 	}
 
-	/**
-	 * Constructeur sans id
-	 * @param nom
-	 * @param prenom
-	 * @param adresse
-	 * @param codePostal
-	 * @param ville
-	 * @param tel
-	 * @param conseiller
-	 */
-	public Client(String nom, String prenom, String adresse, int codePostal,
-			String ville, String tel, Conseiller conseiller) {
+	public Client(String nom, String prenom, String adresse, int codePostal, String ville, String tel,
+			Conseiller conseiller) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -150,12 +129,20 @@ public class Client implements Serializable {
 		this.conseiller = conseiller;
 	}
 
-	/**
-	 * Constructeur vide
-	 */
+	public Client(String nom, String prenom, String adresse, int codePostal, String ville, String tel) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.tel = tel;
+	}
+
 	public Client() {
 		super();
 	}
+
 	
 	
 

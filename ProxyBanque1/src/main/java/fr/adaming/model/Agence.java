@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,51 +27,52 @@ public class Agence implements Serializable{
 	private int id;
 	private Date dateCreation;
 	
+	@OneToOne
+	private Gerant gerant;
 
-	
-	/**
-	 * Constructeur vide
-	 */
-	public Agence() {
-		super();
+	public int getId() {
+		return id;
 	}
-	
-	/**
-	 * COnstructeur sans id
-	 * @param dateCreation
-	 */
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
+	}
+
+	public Gerant getGerant() {
+		return gerant;
+	}
+
+	public void setGerant(Gerant gerant) {
+		this.gerant = gerant;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Agence(Date dateCreation, Gerant gerant) {
+		super();
+		this.dateCreation = dateCreation;
+		this.gerant = gerant;
+	}
+
 	public Agence(Date dateCreation) {
 		super();
 		this.dateCreation = dateCreation;
 	}
-	
-	/**
-	 * COnstructeur plein
-	 * @param id
-	 * @param dateCreation
-	 */
-	public Agence(int id, Date dateCreation) {
+
+	public Agence() {
 		super();
-		this.id = id;
-		this.dateCreation = dateCreation;
 	}
 	
-	/**
-	 * Getters & Setters
-	 * @return
-	 */
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public Date getDateCreation() {
-		return dateCreation;
-	}
-	public void setDateCreation(Date dateCreation) {
-		this.dateCreation = dateCreation;
-	}
 	
 	
 	
