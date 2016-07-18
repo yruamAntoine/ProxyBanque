@@ -81,6 +81,7 @@ public class ClientManagedBean implements Serializable {
 	}
 	
 	public void deleteClient(){
+		clientService.deleteClient(this.client);
 		
 	}
 	
