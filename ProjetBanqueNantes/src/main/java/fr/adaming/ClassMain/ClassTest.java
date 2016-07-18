@@ -45,6 +45,10 @@ public class ClassTest {
 		cl1.setConseiller(conseiller1);
 		clientDao.addClient(cl1);
 		
+//		Client cl2=new Client("FILSDEPUTE","Judas","VilleJuif", 94800, "VilleJuif", "00000000");
+//		cl2.setConseiller(conseiller1);
+//		clientDao.addClient(cl2);
+		
 		CompteCourant cc1=new CompteCourant("123344", 1234, new Date(),100, "carteCredit");
 		
 		cc1.setClient(cl1);
