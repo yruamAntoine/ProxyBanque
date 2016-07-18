@@ -21,7 +21,7 @@ public class Client extends Personne {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int idClient;
 
 	@Column
 	private String adresse;
@@ -57,10 +57,10 @@ public class Client extends Personne {
 		this.telephone = telephone;
 	}
 
-	public Client(String nom, String prenom, int id, String adresse,
+	public Client(String nom, String prenom, int idClient, String adresse,
 			int codePostal, String ville, String telephone) {
 		super(nom, prenom);
-		this.id = id;
+		this.idClient = idClient;
 		this.adresse = adresse;
 		this.codePostal = codePostal;
 		this.ville = ville;
@@ -69,12 +69,12 @@ public class Client extends Personne {
 
 	
 	//Getters et Setters 
-	public int getId() {
-		return id;
+	public int getIdClient() {
+		return idClient;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int idClient) {
+		this.idClient = idClient;
 	}
 
 	public String getAdresse() {
@@ -135,7 +135,7 @@ public class Client extends Personne {
 
 	@Override
 	public String toString() {
-		return "Client [id=" + id + ", adresse=" + adresse + ", codePostal="
+		return "Client [id=" + idClient + ", adresse=" + adresse + ", codePostal="
 				+ codePostal + ", ville=" + ville + ", telephone=" + telephone + "]";
 	}
 

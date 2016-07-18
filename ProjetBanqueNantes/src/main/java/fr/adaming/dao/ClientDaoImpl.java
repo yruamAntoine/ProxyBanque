@@ -63,18 +63,20 @@ public class ClientDaoImpl implements IClientDao {
 		return null;
 	}
 
+
+
+	@Override
+	public List<Client> findClientByNomAndPrenom(String nom, String prenom) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	@Override
 	public Client findClientById(int id) {
 		Session session=sessionFactory.getCurrentSession();
 		Client client=(Client) session.get(Client.class, id);
 		
 		return  client;
-	}
-
-	@Override
-	public List<Client> findClientByNomAndPrenom(String nom, String prenom) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Suppresion de Client</title>
+	<title>Ajout de Client</title>
 </h:head>
 <h:body>
 	<h:form>
@@ -15,18 +15,18 @@
 				<legend>Client</legend>
 
 				<h:panelGrid columns="2" cellpadding="5">
-					<p:outputLabel for="id" value="Id : " />
-					<p:inputMask id="id" value="#{clientBean.client.id}"
+					<p:outputLabel for="idClient" value="id  : " />
+					<p:inputMask id="idClient" value="#{clientBean.client.idClient}"
 						required="true" />
 
-					
+
 
 				</h:panelGrid>
 
 
 			</fieldset>
 		</div>
-		<h:commandButton update="@all" value="Suppression"
+		<h:commandButton value="delete"
 			action="#{clientBean.deleteClient()}">
 		</h:commandButton>
 	</h:form>

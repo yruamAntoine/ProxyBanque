@@ -6,21 +6,25 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-import fr.adaming.dao.ClientDaoImpl;
+import org.springframework.stereotype.Component;
+
+
 import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
-import fr.adaming.service.ClientServiceImpl;
+
 import fr.adaming.service.IClientService;
 import fr.adaming.service.IConseillerService;
 
 @ManagedBean(name="clientBean")
 @SessionScoped
+@Component
 public class ClientManagedBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Client client;
 	private long idConseiller;
+	private int idClient;
 	
 	@ManagedProperty(value="#{conseillerService}")
 	IConseillerService conseillerService;
@@ -36,10 +40,19 @@ public class ClientManagedBean implements Serializable {
 	
 //======================================================================================================
 	//Getters et Setters 
+	
 	public Client getClient() {
 		return client;
 	}
 
+
+	public int  getIdClient() {
+		return idClient;
+	}
+
+	public void setIdClient(int idClient) {
+		this.idClient = idClient;
+	}
 
 	public void setClient(Client client) {
 		this.client = client;
@@ -82,9 +95,10 @@ public class ClientManagedBean implements Serializable {
 		
 	}
 	
-	public void deleteClient(int id){
-		Client clt = clientService.findClientById(id);
+	public void deleteClient(){
+		Client clt = clientService.findClientById(idClient);
 		clientService.deleteClient(clt);
+		this.client=null;
 	}
 	
 }
