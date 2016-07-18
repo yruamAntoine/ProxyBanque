@@ -80,8 +80,11 @@ public class ClientManagedBean implements Serializable {
 		
 	}
 	
-	public void deleteClient(){
+	public void deleteClient(int id){
+		Conseiller conseiller=conseillerService.findConseillerById(idConseiller);
+		this.client.setConseiller(conseiller);
 		clientService.deleteClient(this.client);
+		this.client=null;
 		
 	}
 	
