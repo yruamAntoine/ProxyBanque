@@ -80,5 +80,8 @@ public class ClientManagedBean implements Serializable {
 		
 	}
 	
+	public void deleteClient(){
+		
+	}
 	
 }
