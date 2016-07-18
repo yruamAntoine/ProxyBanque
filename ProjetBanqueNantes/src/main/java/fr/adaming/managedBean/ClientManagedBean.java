@@ -6,8 +6,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
+import fr.adaming.dao.ClientDaoImpl;
 import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
+import fr.adaming.service.ClientServiceImpl;
 import fr.adaming.service.IClientService;
 import fr.adaming.service.IConseillerService;
 
@@ -80,13 +82,9 @@ public class ClientManagedBean implements Serializable {
 		
 	}
 	
-	public void deleteClient(Client clt){
-		
-		Conseiller conseiller=conseillerService.findConseillerById(idConseiller);
-		
-		clientService.deleteClient(this.client);
-		this.client=null;
-		
+	public void deleteClient(int id){
+		Client clt = clientService.findClientById(id);
+		clientService.deleteClient(clt);
 	}
 	
 }
