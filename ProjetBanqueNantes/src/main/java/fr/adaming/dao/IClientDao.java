@@ -16,7 +16,7 @@ public interface IClientDao {
 
 	public  List<Client> selectClientByIdConseiller(Long idConseiller);
 
-	public  Client findClientById(int id);
+	public  Client findClientById(int idClient);
 
 	public List<Client> findClientByNomAndPrenom(String nom,String prenom);
 }
