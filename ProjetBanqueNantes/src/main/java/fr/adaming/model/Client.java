@@ -15,12 +15,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name ="ClientEntity")
 @Table(name = "clients")
 public class Client extends Personne {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private int idClient;
 
 	@Column

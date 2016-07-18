@@ -6,52 +6,38 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-import org.springframework.stereotype.Component;
-
-
 import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
 
 import fr.adaming.service.IClientService;
 import fr.adaming.service.IConseillerService;
 
-@ManagedBean(name="clientBean")
+@ManagedBean(name = "clientBean")
 @SessionScoped
-@Component
 public class ClientManagedBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Client client;
 	private long idConseiller;
-	private int idClient;
-	
-	@ManagedProperty(value="#{conseillerService}")
+
+	@ManagedProperty(value = "#{conseillerService}")
 	IConseillerService conseillerService;
-	
-	@ManagedProperty(value="#{clientService}")
+
+	@ManagedProperty(value = "#{clientService}")
 	IClientService clientService;
 
-//=====================================================================================================
-	//Constructeur
+	// =====================================================================================================
+	// Constructeur
 	public ClientManagedBean() {
-	this.client=new Client();
-}
-	
-//======================================================================================================
-	//Getters et Setters 
-	
+		this.client = new Client();
+	}
+
+	// ======================================================================================================
+	// Getters et Setters
+
 	public Client getClient() {
 		return client;
-	}
-
-
-	public int  getIdClient() {
-		return idClient;
-	}
-
-	public void setIdClient(int idClient) {
-		this.idClient = idClient;
 	}
 
 	public void setClient(Client client) {
@@ -82,23 +68,26 @@ public class ClientManagedBean implements Serializable {
 		this.clientService = clientService;
 	}
 
-	
-//==========================================================================================================
-	//Methodes 
-	
+	// ==========================================================================================================
+	// Methodes
 
-	public void addClient(){
-		Conseiller conseiller=conseillerService.findConseillerById(idConseiller);
+	public void addClient() {
+		Conseiller conseiller = conseillerService.findConseillerById(idConseiller);
 		this.client.setConseiller(conseiller);
 		clientService.addClient(this.client);
-		this.client=null;
-		
+		this.client = null;
+
 	}
-	
-	public void deleteClient(){
-		Client clt = clientService.findClientById(idClient);
-		clientService.deleteClient(clt);
+
+	public void deleteClient() {
+		Client cl1 = clientService.findClientById(this.client.getIdClient());
+		clientService.deleteClient(cl1);
+		this.client = null;
+	}
+
+	public void updateClient() {
+		Client cl2 = clientService.findClientById(this.client.getIdClient());
+		clientService.updateClient(cl2);
 		this.client=null;
 	}
-	
 }

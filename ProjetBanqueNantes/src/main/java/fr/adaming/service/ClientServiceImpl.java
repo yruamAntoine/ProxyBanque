@@ -32,15 +32,11 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public void updateClient(Client client) {
-		// TODO Auto-generated method stub
+		clientDao.updateClient(client);
 
 	}
 
-	@Override
-	public void deleteClient(Client client) {
-		clientDao.deleteClient(client);
 
-	}
 
 	@Override
 	public List<Client> selectAllClients() {
@@ -56,14 +52,19 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public Client findClientById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return clientDao.findClientById(id);
 	}
 
 	@Override
 	public List<Client> findClientByNomAndPrenom(String nom, String prenom) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void deleteClient(Client client) {
+		clientDao.deleteClient(client);
+		
 	}
 
 }

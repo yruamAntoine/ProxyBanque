@@ -9,25 +9,7 @@
 	<title>Ajout de Client</title>
 </h:head>
 <h:body>
-	<h:form>
-		<div id="body">
-			<fieldset>
-				<legend>Client</legend>
 
-				<h:panelGrid columns="2" cellpadding="5">
-					<p:outputLabel for="idClient" value="id  : " />
-					<p:inputMask id="idClient" value="#{clientBean.idClient}"
-						required="true" />
-
-				</h:panelGrid>
-
-
-			</fieldset>
-		</div>
-		<h:commandButton value="delete"
-			action="#{clientBean.deleteClient()}">
-		</h:commandButton>
-	</h:form>
 
 </h:body>
 

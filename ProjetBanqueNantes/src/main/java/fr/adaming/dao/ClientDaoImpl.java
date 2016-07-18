@@ -1,7 +1,9 @@
 package fr.adaming.dao;
 
+
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.model.Client;
 
+
 @Repository("clientDao")
 @Transactional
 public class ClientDaoImpl implements IClientDao {
 
-	
 	@Autowired
 	private SessionFactory sessionFactory;
 	
@@ -34,21 +36,19 @@ public class ClientDaoImpl implements IClientDao {
 	public void addClient(Client client) {
 		Session session=sessionFactory.getCurrentSession();
 		session.save(client);
-		
-		
 	}
 
 	@Override
 	public void updateClient(Client client) {
-		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+		session.update(client);
 
 	}
 
 	@Override
 	public void deleteClient(Client client) {
-		Session session=sessionFactory.getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.delete(client);
-	
 	}
 
 	@Override

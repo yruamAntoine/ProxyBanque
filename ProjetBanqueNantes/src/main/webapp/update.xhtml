@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Ajout de Client</title>
+	<title>Update de Client</title>
 </h:head>
 <h:body>
 	<h:form>
@@ -14,9 +14,14 @@
 			<fieldset>
 				<legend>Client</legend>
 
+
 				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="idClient" value="Id  : " />
+					<p:inputMask id="idClient" value="#{clientBean.client.idClient}"
+						required="true" />
+
 					<p:outputLabel for="nom" value="Nom  : " />
-					<p:inputMask id="nom"      value="#{clientBean.client.nom}"
+					<p:inputMask id="nom" value="#{clientBean.client.nom}"
 						required="true" />
 
 					<p:outputLabel for="prenom" value="Prenom  : " />
@@ -48,9 +53,10 @@
 			</fieldset>
 		</div>
 		<h:commandButton update="@all" value="ajout"
-			action="#{clientBean.addClient()}">
+			action="#{clientBean.updateClient()}">
 		</h:commandButton>
 	</h:form>
+	
 	
 </h:body>
 

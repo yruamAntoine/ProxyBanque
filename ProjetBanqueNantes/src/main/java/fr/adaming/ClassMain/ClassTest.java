@@ -60,9 +60,9 @@ public class ClassTest {
 		
 		ceDao.addCompteEpargne(ce1);	
 		
-		Client cl2=clientDao.findClientById(2);
+		Client cl2=clientDao.findClientById(1);
 		System.out.println(cl2.getConseiller());
-		clientDao.deleteClient(cl2);
+		//clientDao.deleteClient(cl2);
 		
 
 	}
